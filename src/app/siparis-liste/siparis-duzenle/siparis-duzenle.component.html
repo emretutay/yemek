@@ -1,0 +1,39 @@
+<div class="row" [hidden]="editMode === false">
+    <div class="col-xs-12">
+    <p> Yemek Id: {{yemek.id}}</p>
+    <p> Yemek Isim: {{yemek.isim}}</p>
+    <div class="col-xs-12">
+        <img [src]="yemek.resimPath" alt="{{yemek.isim}}" class="img-responsive" style="max-height: 250px">
+    </div>
+    <p> Yemek Fiyat: {{yemek.fiyat}}</p>
+    <p *ngIf = "role === 'Admin'"> Sipariş Sahibi: {{email}}</p>
+    
+
+    <form (ngSubmit)="onSaveDurum(f)" #f="ngForm"> 
+        <div class="row">
+            <div class="col-sm-12 form-group" >
+                
+                <label for="durum" *ngIf = "role === 'Admin'"
+                >Sipariş Durumu: 
+                <select class ="form-control" id="durum" name="durum" ngModel>
+                    
+                    <option value="">Kategori Seç</option>
+                    <option value='Hazırlanıyor'>Hazırlanıyor</option>
+                    <option value="Yolda">Yolda</option>
+                    <option value="Teslim Edildi">Teslim Edildi</option>
+                    <option value="İptal Edildi">İptal Edildi</option>
+      
+                </select>
+                </label>
+                <span class="pull-right">
+                    <button class="btn btn-info"  *ngIf = "role === 'Admin'"type="submit" ngModel>Durumu Kaydet </button>&nbsp; &nbsp; 
+                    <button class="btn btn-danger" *ngIf="role === 'User'"[disabled]="editMode === false" (click) ="onDeleteSiparis()">Siparişi İptal Et </button>
+                </span>
+                
+
+              
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

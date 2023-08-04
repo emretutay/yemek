@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-8">
+        
+        <ul class="list-group">
+            <a
+                class="list-group-item"
+                style="cursor: pointer;"
+                *ngFor="let siparis of siparisler; let i = index"
+                (click)="onEditItem(i)"
+            >
+               
+            {{siparis.id}}  {{siparis.userId}} {{siparis.durum}} 
+            </a>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4 class="list-group-item-heading">Sipariş Düzenle</h4>
+        <app-siparis-duzenle></app-siparis-duzenle>
+    </div>
+</div>

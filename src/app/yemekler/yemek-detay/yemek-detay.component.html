@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-xs-12">
+        <img [src]="yemek.resimPath" alt="{{yemek.isim}}" class="img-responsive" style="max-height: 350px">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>  {{yemek.isim}}</h1>
+    </div>
+</div>
+
+<div class="row" *ngIf = "role === 'User' || role === 'Admin'">
+    <div class="col-xs-12">
+        <div class="btn-group"  appDropdown>
+            <button type="button" class= "btn btn-primary dropdown-toggle"> 
+            Yemeği Düzenle <span class= "caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li *ngIf = "role === 'User'"><a  style="cursor: pointer;" (click) = "onSiparisYemek()">Yemeği Sipariş Et</a></li>
+                <li *ngIf = "role === 'Admin'"><a style="cursor: pointer;" (click)="onEditYemek()">Yemeği Düzenle</a></li>
+                <li *ngIf = "role === 'Admin'"><a style="cursor: pointer;" (click)="onDeleteYemek()" >Yemeği Sil</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Id : {{yemek.id}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Açıklama : {{yemek.aciklama}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Fiyat : {{yemek.fiyat}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Kategori : {{kategori}}
+    </div>
+</div>
+
+

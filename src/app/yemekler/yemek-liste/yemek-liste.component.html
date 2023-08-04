@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-xs-12" >
+        <button class="btn btn-success" *ngIf = "role === 'Admin'"(click)="onNewYemek()">Yeni Yemek</button>
+         &nbsp; &nbsp; 
+        <button class="btn btn-info" *ngIf = "role === 'Admin'"(click)="onNewKategori()">Yeni Kategori</button>
+         &nbsp; &nbsp; 
+        <button class="btn btn-warning" *ngIf = "role === 'Admin'"(click)="onUpdateKategori()">Kategori Düzenle</button>
+        &nbsp; &nbsp;
+        <button class="btn btn-secondary" (click) = "onFilterYemek()">Yemekleri Filtrele </button>
+   
+
+    </div>
+    
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        
+       <app-yemek-oge *ngFor="let yemekEl of yemekler; let i = index" [yemek]="yemekEl" [index]="i"></app-yemek-oge>
+    </div>
+</div>

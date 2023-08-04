@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form  [formGroup]="kategoriForm" (ngSubmit)="onSubmit()">
+            <h1> Kategori Ekle</h1>
+            <br> <br>
+           
+            
+            
+            
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="isim">Kategori Adı:</label>
+                        <input
+                            type="text"
+                            id="isim"
+                            formControlName ="isim"
+                            class="form-control">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <button type="submit" [disabled] = "!kategoriForm.valid" class="btn btn-success">Kaydet</button>
+                    &nbsp; &nbsp; 
+                    <button type="button" class="btn btn-danger" (click) = "onCancel()">Vazgeç</button>
+                </div>
+            </div>
+            
+           
+           
+        </form>

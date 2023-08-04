@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form  [formGroup]="yemekfiltreForm" (ngSubmit)="onSubmit()">
+            <h1> Yemekleri Filtrele</h1>
+            <br> <br>
+           
+            
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <div class="form-group">
+                    <label for="kategori"
+                        >Kategori:
+                        <select class ="form-control" formControlName ="kategori" id="kategori" name="kategori" [(ngModel)]="selectedCategory" >
+                    
+        
+                            <option value="">Hepsi</option>
+                            <option *ngFor="let kategori of kategoriler; let i = index" [ngValue]="kategori" >
+                                    {{ kategori.isim }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                </div>
+            </div>
+            
+            
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <button type="submit" [disabled] = "!yemekfiltreForm.valid" class="btn btn-success">Kaydet</button>
+                    &nbsp; &nbsp; 
+                    <button type="button" class="btn btn-danger" (click) = "onCancel()">Vazgeç</button>
+                    
+                </div>
+            </div>
+            
+           
+           
+        </form>
+    </div>
+</div>

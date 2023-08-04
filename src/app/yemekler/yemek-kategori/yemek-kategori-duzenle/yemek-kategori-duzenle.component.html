@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form  [formGroup]="kategoriduzenleForm" (ngSubmit)="onSubmit()">
+            <h1> Kategori Düzenle</h1>
+            <br> <br>
+           
+            
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <div class="form-group">
+                    <label for="kategori"
+                        >Sipariş Durumu:
+                        <select class ="form-control" formControlName ="kategori" id="kategori" name="kategori" [(ngModel)]="selectedCategory" >
+                    
+        
+                            <option value="">Kategori Seç</option>
+                            <option *ngFor="let kategori of kategoriler; let i = index" [ngValue]="kategori" >
+                                    {{ kategori.isim }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                </div>
+            </div>
+            
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="isim">Kategori Adı:</label>
+                        <input
+                            type="text"
+                            id="isim"
+                            formControlName ="isim"
+                            class="form-control">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <button type="submit" [disabled] = "!kategoriduzenleForm.valid" class="btn btn-success">Kaydet</button>
+                    &nbsp; &nbsp; 
+                    <button type="button" class="btn btn-danger" (click) = "onCancel()">Vazgeç</button>
+                    &nbsp; &nbsp; 
+                    <button type="button" [disabled] = "!kategoriduzenleForm.get('kategori').valid" class="btn btn-warning" (click) = "onDelete()">Kategoriyi Sil</button>
+                </div>
+            </div>
+            
+           
+           
+        </form>
+    </div>
+</div>
